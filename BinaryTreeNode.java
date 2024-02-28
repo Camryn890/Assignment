@@ -11,12 +11,16 @@ public class BinaryTreeNode<T>
       this.right = right;
    }
    
-   BinaryTreeNode<T> getLeft () 
+   BinaryTreeNode<T> getLeft() 
    { 
       return left; 
    }
-   BinaryTreeNode<T> getRight () 
+   BinaryTreeNode<T> getRight() 
    { 
       return right; 
    }
+   Objects getData()
+   {
+      return data;
+   }   
 }

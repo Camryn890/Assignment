@@ -1,4 +1,4 @@
-public class BinarySearchNode<Objects extends Comparable<super Objects>> extends BinaryTree<Objects>
+public class BinarySearchNode<T extends Comparable<T>> extends BinaryTree<T>
 {
 
    public void insert ( Objects d )
@@ -12,9 +12,9 @@ public class BinarySearchNode<Objects extends Comparable<super Objects>> extends
          insert (d, root);
       }   
    }
-   public void insert ( Objects d, BinaryTreeNode<dataType> node )
+   public void insert ( Objects d, BinaryTreeNode<Objects> node )
    {
-      if (d.compareTo (node.data) <= 0)
+      if (d.compareTo(node.getData()) <= 0)
       {
          if (node.left == null)
             node.left = new BinaryTreeNode<Objects> (d, null, null);
@@ -47,13 +47,13 @@ public class BinarySearchNode<Objects extends Comparable<super Objects>> extends
       } 
    }
    
-   public BinaryTreehNode<Objects> find( Objects d , BinaryTreeNode<Objects> node)
+   public BinaryTreeNode<Objects> find( Objects d , BinaryTreeNode<Objects> node)
    {
-      if (d.compareTo (node.data) == 0) 
+      if (d.compareTo(node.getData()) == 0) 
       {
          return node;
       }   
-      else if (d.compareTo (node.data) < 0)
+      else if (d.compareTo (node.getData()) < 0)
       {
          return (node.left == null) ? null : find (d, node.left);
       }   
@@ -62,6 +62,10 @@ public class BinarySearchNode<Objects extends Comparable<super Objects>> extends
          return (node.right == null) ? null : find (d, node.right);      
       }
    }
+   public int compareTo(Objects other)
+   {
+      return this.compareTo(other);
+   };
 
 
 

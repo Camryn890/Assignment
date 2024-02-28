@@ -28,6 +28,7 @@ public class GenericsKbArrayApp
             i++;
             files.nextLine();
          }
+         files.close();
       }
       catch(FileNotFoundException e){}
       return Array;
@@ -41,7 +42,6 @@ public class GenericsKbArrayApp
       {
          if(array[i].getTerm().equals(term))
          {
-            int c = i;
             return i;
          }   
       }

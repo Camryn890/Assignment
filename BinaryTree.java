@@ -1,7 +1,7 @@
 public class BinaryTree<T>
 {
    
-   BinarySearchNode<T> root;
+   BinaryTreeNode<Objects> root;
    BinaryTree()
    {
       root = null;
@@ -33,7 +33,7 @@ public class BinaryTree<T>
    
    public void visit ( BinaryTreeNode<Objects> node )
    {
-      System.out.println (node.data);
+      System.out.println (node.getData());
    }
 
  
