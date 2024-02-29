@@ -107,7 +107,9 @@ public class GenericsKbArrayApp
       int i = DualSearch(term,sentence,file);
       return "The statement was found and has a confidence score of " + array[i].getLevel();
    }
- 
+   
+   GenericsKbBSTApp BST = new GenericsKbBSTApp();
+
 } 
  
       
