@@ -1,5 +1,6 @@
-public class BinarySearchNode<T extends Comparable<T>> extends BinaryTree<T>
+public class BinarySearchNode<dataType extends Comparable<? super dataType>> extends BinaryTree<dataType>
 {
+   BinaryTreeNode<Objects> root;
 
    public void insert ( Objects d )
    {
@@ -49,11 +50,11 @@ public class BinarySearchNode<T extends Comparable<T>> extends BinaryTree<T>
    
    public BinaryTreeNode<Objects> find( Objects d , BinaryTreeNode<Objects> node)
    {
-      if (d.compareTo(node.getData()) == 0) 
+      if (d.compareTo(node.data) == 0) 
       {
          return node;
       }   
-      else if (d.compareTo (node.getData()) < 0)
+      else if (d.compareTo(node.data) < 0)
       {
          return (node.left == null) ? null : find (d, node.left);
       }   
