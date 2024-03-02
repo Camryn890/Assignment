@@ -52,12 +52,13 @@ public class GenericsKbBSTApp<T>{
          System.out.println (node.getData());
       }
 
-      public BinarySearchNode<T>  MakeTree(){String fileSt}
+      public BinarySearchNode<T>  makeTree(){String filename}
       {
          try{
-            File file = new File(fileSt);
+            File file = new File(filename);
             Scanner files  = new Scanner(new FileInputStream(file));
             files.useDelimiter("//t");
+
             String term = files.next();
             String sentence = files.next();
             float confidence = files.nextFloat();
@@ -71,7 +72,7 @@ public class GenericsKbBSTApp<T>{
                String sentences = files.next();
                float confidences = files.nextFloat();
                Objects Nodes = new Objects(term,sentence,confidence);
-               Tree.insert(Node,Tree);
+               Tree.insert(Nodes,Tree);
 
 
             }

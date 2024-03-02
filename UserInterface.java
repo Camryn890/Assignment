@@ -31,28 +31,29 @@ public class UserInterface{
                   Scanner FileIN= new Scanner(new FileInputStream(file));
                   GenericsKbArrayApp add = new GenericsKbArrayApp();
                   add.ArrayFile(files);
+                  FileIN.close();
+               }  
 
-               }    
                catch(FileNotFoundException e)
                {  
                System.out.print("File not found");
                System.exit(0);
                }  
             
-            case 2:
-               System.out.print("Enter the term:");
-               String term = scanner.nextLine();
+            //case 2:
+               //System.out.print("Enter the term:");
+              // String term = scanner.nextLine();
             
-               System.out.print("Enter the statement:");
-               String sen = scanner.nextLine();
+               //System.out.print("Enter the statement:");
+               //String sen = scanner.nextLine();
             
-               System.out.print("Enter the confidence score:");
-               float score = scanner.nextFloat();
+               //System.out.print("Enter the confidence score:");
+               //float score = scanner.nextFloat();
             
-               GenericsKbArrayApp Line = new GenericsKbArrayApp();
-               Line.addStatements(term,sen,score,file);
+               //GenericsKbArrayApp Line = new GenericsKbArrayApp();
+               //Line.addStatements(term,sen,score,file);
             
-               System.out.print("Statement for term " + term + " has been updated.");
+               //System.out.print("Statement for term " + term + " has been updated.");
 
             case 3:
                System.out.print("Enter the term to search: ");
@@ -73,5 +74,5 @@ public class UserInterface{
             }      
       
       }while(choice != 5);                          
-   }          
+   }     
 }

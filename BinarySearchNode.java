@@ -63,10 +63,6 @@ public class BinarySearchNode<dataType extends Comparable<? super dataType>> ext
          return (node.right == null) ? null : find (d, node.right);      
       }
    }
-   public int compareTo(Objects other)
-   {
-      return this.compareTo(other);
-   };
 
 
 
