@@ -1,8 +1,8 @@
-public class BinarySearchNode<datatype extends Comparable<datatype>>
+public class BinarySearchTree<datatype extends Comparable<datatype>>
 {
    BinaryTreeNode<datatype> root;
 
-   BinarySearchNode()
+   BinarySearchTree()
    {
     root = null;
    }
@@ -19,7 +19,7 @@ public class BinarySearchNode<datatype extends Comparable<datatype>>
    }
    public void insert ( Objects d, BinaryTreeNode<datatype> node )
    {
-      if (d.compareTo(node.getData()) <= 0)
+      if (d.getTerm().compareTo(node.getData().getTerm()) <= 0)
       {
          if (node.left == null)
             node.left = new BinaryTreeNode<datatype> (d, null, null);
@@ -54,17 +54,44 @@ public class BinarySearchNode<datatype extends Comparable<datatype>>
    
    public BinaryTreeNode<datatype> find( Objects d , BinaryTreeNode<datatype> node)
    {
-      if (d.compareTo(node.data) == 0) 
+      if (d.getTerm().compareTo(node.getData().getTerm()) == 0) 
       {
          return node;
       }    
-      else if (d.compareTo(node.data) < 0)
+      else if (d.getTerm().compareTo(node.getData().getTerm()) < 0)
       {
          return (node.left == null) ? null : find (d, node.left);
       }   
       else
       {
          return (node.right == null) ? null : find (d, node.right);      
+      }
+   }
+   public BinaryTreeNode<datatype> find1(Objects d)
+   {
+      if(root==null)
+      {
+         return null;
+      }
+      else
+      {
+         return find1(d,root);
+      } 
+   }
+   
+   public BinaryTreeNode<datatype> find1( Objects d , BinaryTreeNode<datatype> node)
+   {
+      if (d.getTerm().compareTo(node.getData().getTerm()) == 0 && d.getSentence().compareTo(node.getData().getSentence()) == 0 ) 
+      {
+         return node;
+      }    
+      else if (d.getTerm().compareTo(node.getData().getTerm()) < 0)
+      {
+         return (node.left == null) ? null : find1 (d, node.left);
+      }   
+      else
+      {
+         return (node.right == null) ? null : find1 (d, node.right);      
       }
    }
 }

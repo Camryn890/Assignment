@@ -30,6 +30,7 @@ public class GenericsKbArrayApp
             files.nextLine();
             Array[i++]= new Objects(term, sentence, confidence);
          }
+         System.out.println("Knowledge base loaded successfully ");
          files.close();
       }
       catch(FileNotFoundException e)
@@ -110,10 +111,6 @@ public class GenericsKbArrayApp
       return "The statement was found and has a confidence score of " + Array[i].getLevel();
    }
 
-   public void AddTostring()
-   {
-      System.out.println("Knowledge base loaded successfully ");
-   }
 
 
 } 
