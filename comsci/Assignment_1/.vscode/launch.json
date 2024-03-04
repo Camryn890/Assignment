@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "UserInterface",
+            "request": "launch",
+            "mainClass": "UserInterface",
+            "projectName": "Assignment_1_3e669210"
+        },
+        {
+            "type": "java",
+            "name": "UserInterfaceBST",
+            "request": "launch",
+            "mainClass": "UserInterfaceBST",
+            "projectName": "Assignment_1_3e669210"
+        }
+    ]
+}

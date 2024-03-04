@@ -1,5 +1,5 @@
 
-public class Objects {
+public class Objects implements Comparable<String>{
 
    private String term;
    private String sentence;
@@ -37,8 +37,8 @@ public class Objects {
       this.level = level;
    }   
 
-
-   
-
-
+   public int compareTo(String other)
+   {
+      return this.getTerm().compareTo(other);
+   }
 }

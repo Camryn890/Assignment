@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class UserInterface{
    public static void main(String[] args){
       
@@ -7,6 +8,7 @@ public class UserInterface{
       int choice;
       GenericsKbArrayApp add = null;
       do{
+         System.out.println("");
          System.out.println("Choose an action from the menu:");
          System.out.println("1. Load a knowledge base from a file");
          System.out.println("2. Add a new statement to the knowledge base");
@@ -17,6 +19,7 @@ public class UserInterface{
       
          choice = scanner.nextInt();
          scanner.nextLine();
+         System.out.println("");
          switch(choice)
          {
         
@@ -34,16 +37,15 @@ public class UserInterface{
                String sen = scanner.nextLine();
             
                System.out.print("Enter the confidence score: ");
-               float score = scanner.nextFloat();
-               scanner.nextLine();
-
-               add.addStatements(term,sen,score);
+               String score = scanner.nextLine();
+               System.out.println("");
+               add.addStatements(term,sen,Float.parseFloat(score));
                break;
 
          case 3:
             System.out.print("Enter the term to search: ");
             String choices = scanner.nextLine();
-
+            System.out.println("");
             System.out.println(add.displaySentence(choices));
             break;
             
@@ -52,7 +54,7 @@ public class UserInterface{
             String terms = scanner.nextLine();
             System.out.print("Enter the statement to search for: ");
             String sens = scanner.nextLine();
-            
+            System.out.println("");
             System.out.println(add.displayScore(terms,sens));
             break;
             

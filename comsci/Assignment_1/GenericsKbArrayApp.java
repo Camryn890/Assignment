@@ -1,12 +1,11 @@
 import java.util.Scanner;
-import java.io.FileInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 
 
 public class GenericsKbArrayApp
 {
-   Objects[] Array;
+   Objects[] array;
     
    GenericsKbArrayApp(String files){
       ArrayFile(files);
@@ -19,16 +18,20 @@ public class GenericsKbArrayApp
       try
       {
          File file = new File(Stringfile);
-         Scanner files  = new Scanner(new FileInputStream(file));  
-         Array = new Objects[1000000];
-         files.useDelimiter("//t");
+         Scanner files  = new Scanner(file);
+         array = new Objects[100000];
          while(files.hasNextLine())
          {  
+            files.useDelimiter("\t");
             String term = files.next();
+
             String sentence = files.next();
-            float confidence = files.nextFloat();
+            
+            files.useDelimiter("\n");
+            float confidence = Float.parseFloat(files.next());
+
+            array[i++]= new Objects(term, sentence, confidence);
             files.nextLine();
-            Array[i++]= new Objects(term, sentence, confidence);
          }
          System.out.println("Knowledge base loaded successfully ");
          files.close();
@@ -37,7 +40,7 @@ public class GenericsKbArrayApp
       {
          System.out.println("ERROR");
       }
-      return Array;
+      return array;
             
       }
 
@@ -46,9 +49,9 @@ public class GenericsKbArrayApp
    //searches for item and returns its index
    public int intSearch(String term)
    {
-      for(int i = 0; i < Array.length; i++)
+      for(int i = 0; i < array.length; i++)
       {
-         if(Array[i].getTerm().equals(term))
+         if(array[i].getTerm().equals(term))
          {
             return i;
          }   
@@ -58,9 +61,9 @@ public class GenericsKbArrayApp
    
    //searches for item and returns boolean
    public boolean search(String term){
-      for(int i = 0; i < Array.length; i++)
+      for(int i = 0; i < array.length; i++)
       {
-         if(Array[i].getTerm().equals(term))
+         if(array[i].getTerm().equals(term))
          {
             return true;
          }
@@ -71,9 +74,9 @@ public class GenericsKbArrayApp
    //searches for item and string and returns its index in the array 
    public int DualSearch(String term,String line)
    {
-      for(int i = 0; i < Array.length; i++)
+      for(int i = 0; i < array.length; i++)
       {
-         if(Array[i].getTerm().equals(term) && Array[i].getSentence().equals(line) )
+         if(array[i].getTerm().equals(term) && array[i].getSentence().equals(line) )
          {
             return i;
          }
@@ -88,12 +91,17 @@ public class GenericsKbArrayApp
       if(search(name)==true)
       {
          int i = intSearch(name);
-         Array[i].setSentence(Sentence);
-         if(Array[i].getLevel() < score)
+         array[i].setSentence(Sentence);
+         if(array[i].getLevel() < score)
          {
-            Array[i].setLevel(score);
+            array[i].setLevel(score);
          }  
          System.out.println("Statement for "+ name + " has been updated.");
+      }
+      else
+      {
+         array[array.length] = new Objects(name,Sentence,score);
+         System.out.println("Statement for "+ name + " has been added.");
       }
    }
    
@@ -101,18 +109,15 @@ public class GenericsKbArrayApp
    public String displaySentence(String term)
    {
       int i = intSearch(term);
-      return "Statement found:" + Array[i].getSentence() +  "(Confidence score:" + Array[i].getLevel() +")";
+      return "Statement found:" + array[i].getSentence() +  "(Confidence score:" + array[i].getLevel() +")";
    }
    
    //shows that the item and statement was found and returns confidence score
    public String displayScore(String term,String sentence)
    {
       int i = DualSearch(term,sentence);
-      return "The statement was found and has a confidence score of " + Array[i].getLevel();
+      return "The statement was found and has a confidence score of " + array[i].getLevel();
    }
-
-
-
 } 
  
       

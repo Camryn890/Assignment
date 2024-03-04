@@ -1,4 +1,4 @@
-public class BinarySearchTree<datatype extends Comparable<datatype>>
+public class BinarySearchTree<datatype extends Comparable<String>>
 {
    BinaryTreeNode<datatype> root;
 

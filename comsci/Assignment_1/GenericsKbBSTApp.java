@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
@@ -9,33 +8,38 @@ public class GenericsKbBSTApp{
 
       public GenericsKbBSTApp(String file)
       {
-         tree = new BinarySearchTree<Objects>();
+         tree = new BinarySearchTree<>();
          makeTree(file);
       }
-      public GenericsKbBSTApp(){}
 
       private void makeTree(String filename)
       {
+
          try{
             File file = new File(filename);
-            Scanner files  = new Scanner(new FileInputStream(file));
-            files.useDelimiter("//t");
+            Scanner files  = new Scanner(file);
             while(files.hasNextLine())
             {
+               files.useDelimiter("\t");
                String terms = files.next();
+
                String sentences = files.next();
-               float confidences = files.nextFloat();
-               files.nextLine();
+
+               files.useDelimiter("\n");
+               float confidences = Float.parseFloat(files.next());
+
                Objects data = new Objects(terms,sentences,confidences);
                tree.insert(data);
+               files.nextLine();
 
             }
+            System.out.println("Knowledge base loaded successfully ");
             files.close();
          }
 
          catch(FileNotFoundException e)
          {
-            
+            System.out.println("Please try again");
          }
       }
       public void displaySentence(String term)
