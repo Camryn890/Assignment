@@ -12,6 +12,10 @@ public class Objects implements Comparable<String>{
       sentence = Sentence;
       level = Level;
    }
+   /**
+    * 
+    * @return
+    */
    public String getTerm()
    {
      return term; 

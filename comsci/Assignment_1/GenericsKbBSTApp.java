@@ -4,14 +4,12 @@ import java.io.FileNotFoundException;
 
 public class GenericsKbBSTApp{
 
-    private BinarySearchTree<Objects> tree;
+    private BinarySearchTree<Objects> tree = new BinarySearchTree<>();
 
       public GenericsKbBSTApp(String file)
       {
-         tree = new BinarySearchTree<>();
          makeTree(file);
       }
-
       private void makeTree(String filename)
       {
 
@@ -31,7 +29,6 @@ public class GenericsKbBSTApp{
                Objects data = new Objects(terms,sentences,confidences);
                tree.insert(data);
                files.nextLine();
-
             }
             System.out.println("Knowledge base loaded successfully ");
             files.close();
