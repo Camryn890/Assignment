@@ -7,6 +7,7 @@ public class UserInterfaceBST{
       int choice;
       GenericsKbBSTApp results = null;
       do{
+         System.out.println("");
          System.out.println("Choose an action from the menu:");
          System.out.println("1. Load a knowledge base from a file");
          System.out.println("2. Add a new statement to the knowledge base");
@@ -17,10 +18,12 @@ public class UserInterfaceBST{
          
          choice = scanner.nextInt();
          scanner.nextLine();
+         System.out.println("");
          switch (choice) {
          case 1 : 
                System.out.print("Enter file name: ");
                String files = scanner.nextLine();
+               System.out.println("");
                results =  new GenericsKbBSTApp(files);
                break;
 
@@ -34,6 +37,7 @@ public class UserInterfaceBST{
             
                System.out.print("Enter the confidence score: ");
                String score = scanner.next();
+               System.out.println("");
                results.addStatements(term,sen,Float.parseFloat(score));
                break;
    
@@ -41,6 +45,7 @@ public class UserInterfaceBST{
          case 3:
             System.out.print("Enter the term to search: ");
             String choices = scanner.nextLine();
+            System.out.println("");
             results.displaySentence(choices);
             break;
  
@@ -49,6 +54,7 @@ public class UserInterfaceBST{
             String terms = scanner.nextLine();
             System.out.print("Enter the statement to search for:");
             String sens = scanner.nextLine();
+            System.out.println("");
             results.displayScore(terms,sens);
             break;
             

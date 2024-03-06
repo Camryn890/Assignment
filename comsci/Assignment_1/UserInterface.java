@@ -25,6 +25,7 @@ public class UserInterface{
         
             case 1: 
                System.out.print("Enter file name: ");
+               System.out.println("");
                String files = scanner.nextLine();
                add = new GenericsKbArrayApp(files); 
                break;
