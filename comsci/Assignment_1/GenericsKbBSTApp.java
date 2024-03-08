@@ -2,14 +2,27 @@ import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
+/**
+ * Author: Hussein Suleman (code could have been altered)
+ * A class using a binary search tree to manage the data supplied
+ */
 public class GenericsKbBSTApp{
 
     private BinarySearchTree<Objects> tree = new BinarySearchTree<>();
 
+/**
+ * Constructor of the GenericsKbApp class
+ * @param file File that contains the data
+ */    
       public GenericsKbBSTApp(String file)
       {
          makeTree(file);
       }
+
+      /**
+       * Reads the data of the file and makes a binary search tree
+       * @param filename The name of the file containing data
+       */
       private void makeTree(String filename)
       {
 
@@ -39,6 +52,12 @@ public class GenericsKbBSTApp{
             System.out.println("Please try again");
          }
       }
+
+      /**
+       * Displays the sentence that is stored in the same node as the term that is given or displays not found if teh term doesn't exist
+       * @param term the term that is searched for
+       */
+
       public void displaySentence(String term)
       {
         Objects group = new Objects(term,null,0);
@@ -52,6 +71,12 @@ public class GenericsKbBSTApp{
          System.out.println("No statement found for the term " + term);
         }
       }
+
+      /**
+       * displays the confidence score of the term and sentence given or displays no statements if the term and sentence is not found 
+       * @param term the term that is searched for 
+       * @param sentence the sentence that is searched for
+       */
       public void displayScore(String term,String sentence)
       {
          Objects group = new Objects(term,sentence,0);
@@ -64,8 +89,15 @@ public class GenericsKbBSTApp{
         {
          System.out.println("No statement found");
         }
-
       }
+
+      /**
+       * Adds the term, sentence and score if the term is not found 
+       * Updates the sentence and confidence level (if the score is higher than current) if term is found 
+       * @param term The term being added or searched for
+       * @param sen The sentence being added or uopdated
+       * @param score The score being added or updated
+       */
       public void addStatements(String term, String sen, float score)
       {
          Objects group = new Objects(term,sen,score);

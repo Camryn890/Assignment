@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
+/**
+ * The class is a user interface that uses the binary search tree 
+ */
 public class UserInterfaceBST{
+
+   /**
+    * The main method that runs the user interface
+    * @param args args Command-line arguments.
+    */
    public static void main(String[] args){
       
       Scanner scanner = new Scanner(System.in);
